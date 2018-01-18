@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue';
 import Vuelidate from 'vuelidate'
-Vue.use(Vuelidate)
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate);
+Vue.use(Vuelidate);
 
 new Vue({
   el: '#app',
