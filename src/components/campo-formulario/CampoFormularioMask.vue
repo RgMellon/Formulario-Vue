@@ -6,17 +6,17 @@
       <input :name="nome" class="faixa faixa-vermelho" v-model.trim="dado"
          v-validate :data-vv-rules="validacao"
          :class="{ 'form-group--error': errors.has(`${nome}`) }"
-         @focus="valida(false)" @blur="valida(true)">
+         @focus="valida(false)" @blur="valida(true)" v-mask="mask" >
 
     </div>
     <div v-else class="form-width">
       <label :class="formLabel"> {{ label }} * </label>
         <input :name="nome" v-if="formLabel == 'form_label_azul'" class="faixa faixa-azul"
         v-model.trim="dado" v-validate :data-vv-rules="validacao"
-        @focus="valida(false)" @blur="valida(true)">
+        @focus="valida(false)" @blur="valida(true)" v-mask="mask">
 
       <input v-else :name="nome"  class="faixa faixa-cinza" v-model.trim="dado"
-        @focus="valida(false)" @blur="valida(true)">
+        @focus="valida(false)" @blur="valida(true)" v-mask="mask">
 
     </div>
 
@@ -29,16 +29,16 @@
 </template>
 
 <script>
-  import myMixin from '../../mixins/valida'
+  import myMixin from '../../mixins/valida';
   export default {
-    props:['label', 'nome', 'required', 'validacao'],
+    props:['label', 'nome', 'required', 'validacao', 'mask'],
     mixins:[myMixin],
-    data() {
-      return {
+    name: 'form-mask',
+    data(){
+       return {
 
       }
     },
-
   }
 </script>
 
